@@ -1,6 +1,6 @@
-**Zadanie 0 
-***Zapisz reguły dla:nieprzyjazn(X,Y), niby_przyjazn(X,Y), loves(X,Y) 1) może być na zasadzie wzajemności i wyłączności 2) dodaj fakt płeć i true_love(X,Y):
-****FAKTY:
+##Zadanie 0 
+###Zapisz reguły dla:nieprzyjazn(X,Y), niby_przyjazn(X,Y), loves(X,Y) 1) może być na zasadzie wzajemności i wyłączności 2) dodaj fakt płeć i true_love(X,Y):
+- FAKTY:
 lubi(jan, pawel).
 lubi(pawel, krzysztof).
 lubi(pawel, jan).
@@ -21,7 +21,7 @@ plec(karolina, baba).
 plec(zosia, baba).
 plec(asia, baba).
 
-***Reguły:
+- REGUŁY:
 przyjazn(X,Y) :-
     lubi(X,Y),
     lubi(Y,X).
