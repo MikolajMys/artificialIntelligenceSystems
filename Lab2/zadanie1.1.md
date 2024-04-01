@@ -1,11 +1,11 @@
 ## Zadanie 1.1
 ### Kim są dla siebie osoby x oraz y w przypadkach A-G, jeśli:
 
-A)
+A) x jest rodzeństwem y
 
-B)
+B) x jest kuzynem y
 
-C)
+C) x jest ?
 
 D)
 
