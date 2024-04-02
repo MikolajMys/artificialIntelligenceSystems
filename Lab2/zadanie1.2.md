@@ -1,5 +1,5 @@
 ```prolog
-%A)
+%A) x jest rodzeństwem y
 %rodzic(a,x).
 %rodzic(a,y).
 %rodzic(b,x).
@@ -13,7 +13,19 @@ rodzenstwo(X,Y) :-
     rodzic(Z,Y),
     X \= Y.
 
-%B)
+
+%B) x jest kuzynem y
+
+%C) x i y są dziadkami
+
+%D) y jest przybranym rodzicem x
+
+%E) x jest przybranym rodzeństwem y
+
+%F) x jest partnerem/ką rodzeństwa y
+
+%G) x jest dzieckiem dziadka i rodzica y 
+
 
 
 ```
