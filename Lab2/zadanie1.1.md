@@ -5,12 +5,12 @@ A) x jest rodzeństwem y
 
 B) x jest kuzynem y
 
-C) x jest ?
+C) x i y są dziadkami
 
-D)
+D) y jest przybranym rodzicem x
 
-E)
+E) x jest przybranym rodzeństwem y
 
-F)
+F) x jest partnerem/ką rodzeństwa y
 
-H)
+H) x jest dzieckiem dziadka i rodzica y 
