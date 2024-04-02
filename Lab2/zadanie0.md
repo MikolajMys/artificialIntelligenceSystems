@@ -1,6 +1,6 @@
 ## Zadanie 0 
 ### Zapisz reguły dla:nieprzyjazn(X,Y), niby_przyjazn(X,Y), loves(X,Y) 1) może być na zasadzie wzajemności i wyłączności 2) dodaj fakt płeć i true_love(X,Y):
-```
+```prolog
 %FAKTY:
 lubi(jan, pawel).
 lubi(pawel, krzysztof).
