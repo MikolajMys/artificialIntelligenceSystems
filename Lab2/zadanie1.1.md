@@ -13,4 +13,4 @@ E) x jest przybranym rodzeństwem y
 
 F) x jest partnerem/ką rodzeństwa y
 
-H) x jest dzieckiem dziadka i rodzica y 
+G) x jest dzieckiem dziadka i rodzica y
