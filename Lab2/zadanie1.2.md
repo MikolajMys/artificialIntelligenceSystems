@@ -39,14 +39,57 @@ dziadkowie(X, Y) :-
     X \= Y.
 
 %D) y jest przybranym rodzicem x
-rodzic(a,x).
-rodzic(a,b).
-rodzic(y,b).
+%rodzic(a,x).
+%rodzic(a,b).
+%rodzic(y,b).
+
+przybrany_rodzic(X, Y) :-
+    rodzic(X,B),
+    rodzic(A,B),
+    rodzic(A,Y),
+    \+ rodzic(X,Y),
+	X \= Y.
 
 %E) x jest przybranym rodzeństwem y
+%rodzic(a,x).
+%rodzic(b,x).
+%rodzic(b,y).
+%rodzic(c,y).
+
+przybrane_rodzenstwo(X,Y):-
+    rodzic(A,X),
+    rodzic(A,Y),
+    \+ (rodzic(B,X), rodzic(B,Y), B \= A),
+    X \= Y.
 
 %F) x jest partnerem/ką rodzeństwa y
+%rodzic(a,y).
+%rodzic(a,b).
+%rodzic(b,c).
+%rodzic(x,c).
+
+partner_ka_rodzenstwa(X,Y) :-
+    rodzenstwo(Y,B),
+    dziecko(A,X),
+    dziecko(A,B),
+    X \= Y.
 
 %G) x jest dzieckiem dziadka i rodzica y 
+rodzic(a,x).
+rodzic(b,x).
+rodzic(a,c).
+rodzic(b,y).
+rodzic(c,y).
 
+dziadek(X,Y) :-
+    rodzic(A,Y),
+    dziecko(A,X),
+    X \= Y.
+
+dziecko_dziadka_rodzica(X,Y) :-
+    dziadek(A,Y),
+    rodzic(B,Y),
+    dziecko(X,A),
+    dziecko(X,B),
+    X \= Y.
 ```
