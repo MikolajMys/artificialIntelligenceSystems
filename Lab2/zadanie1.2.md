@@ -1,3 +1,5 @@
+## Zadanie 1.2
+### Uzupełnij zadanie (w języku Prolog) z poprzednich zajęć o definicje brakujących relacji:
 ```prolog
 %A) x jest rodzeństwem y
 %rodzic(a,x).
