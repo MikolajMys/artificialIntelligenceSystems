@@ -1,33 +1,33 @@
 ## Zadanie 2
 ### Załóżmy, że w pewnej bazie zdefiniowano wyłącznie predykaty: rodzic oraz mężczyzna. Załóżmy ponadto, że zakresem rozważań jest zbiór osób – jako dodatkowy, trzeci predykat. Opierając się na tych trzech predyklatach zdefiniuj w języku Prolog kolejno każdą z poniższych reguł:
 ```prolog
-osoba(Tytus).
-osoba(Romek).
-osoba(Atomek).
-osoba(Tadeusz).
-osoba(Adam).
-osoba(Konrad).
-osoba(Ewa).
-osoba(Anna).
-osoba(Maria).
-osoba(Katarzyna).
-osoba(Weronika).
-osoba(Alicja).
+osoba(tytus).
+osoba(romek).
+osoba(atomek).
+osoba(tadeusz).
+osoba(adam).
+osoba(konrad).
+osoba(ewa).
+osoba(anna).
+osoba(maria).
+osoba(katarzyna).
+osoba(weronika).
+osoba(alicja).
 
-mezczyzna(Tytus).
-mezczyzna(Romek).
-mezczyzna(Atomek).
-mezczyzna(Tadeusz).
-mezczyzna(Adam).
-mezczyzna(Konrad).
+mezczyzna(tytus).
+mezczyzna(romek).
+mezczyzna(atomek).
+mezczyzna(tadeusz).
+mezczyzna(adam).
+mezczyzna(konrad).
 
-rodzic(Ewa, Anna).
-rodzic(Ewa, Tytus).
-rodzic(Tytus, Adam).
-rodzic(Alicja, Adam).
-rodzic(Weronika, Konrad).
-rodzic(Atomek, Konrad).
-rodzic(Tadeusz, Maria).
+rodzic(ewa, anna).
+rodzic(ewa, tytus).
+rodzic(tytus, adam).
+rodzic(alicja, adam).
+rodzic(weronika, konrad).
+rodzic(atomek, konrad).
+rodzic(tadeusz, maria).
 
 %1. kobieta(X)
 kobieta(X) :-
