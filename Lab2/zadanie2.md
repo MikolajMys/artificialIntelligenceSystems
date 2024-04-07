@@ -23,6 +23,10 @@ mezczyzna(konrad).
 
 rodzic(ewa, anna).
 rodzic(ewa, tytus).
+rodzic(romek, anna).
+rodzic(romek, tytus).
+rodzic(ewa, tadeusz).
+rodzic(atomek, tadeusz).
 rodzic(tytus, adam).
 rodzic(alicja, adam).
 rodzic(weronika, konrad).
@@ -35,10 +39,44 @@ kobieta(X) :-
     osoba(X).
 
 %2. ojciec(X,Y) – X jest ojcem Y
+ojciec(X,Y) :-
+    mezczyzna(X),
+    rodzic(X,Y).
+
 %3. matka(X,Y) – X jest matką Y
+matka(X,Y) :-
+    kobieta(X),
+    rodzic(X,Y).
+
 %4. corka(X,Y) – X jest córką Y
+corka(X,Y) :-
+    kobieta(X),
+    rodzic(Y,X).
+
 %5. brat_rodzony(X,Y) – X jest rodzonym bratem Y
+brat_rodzony(X,Y) :-
+    mezczyzna(X),
+    rodzic(A,X),
+    rodzic(A,Y),
+    rodzic(B,X),
+    rodzic(B,Y),
+    mezczyzna(A),
+    kobieta(B),
+    A \= B,
+    X \= Y.
+
 %6. brat_przyrodni(X,Y) – X jest przyrodnim bratem Y
+brat_przyrodni(X,Y) :-
+    mezczyzna(X),
+    rodzic(A,X),
+    rodzic(A,Y),
+    rodzic(B,X),
+    rodzic(C,Y),
+    B \= C,
+    A \= B,
+    A \= C,
+    X \= Y.
+    
 %7. kuzyn(X,Y) – X jest kuzynem Y
 %8. dziadek_od_strony_ojca(X,Y) – X jest dziadkiem od strony ojca dla Y
 %9. dziadek_od_strony_matki(X,Y) – X jest dziadkiem od strony matki dla Y
