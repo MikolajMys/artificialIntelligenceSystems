@@ -21,6 +21,7 @@ mezczyzna(tadeusz).
 mezczyzna(adam).
 mezczyzna(konrad).
 
+rodzic(weronika, ewa).
 rodzic(ewa, anna).
 rodzic(ewa, tytus).
 rodzic(romek, anna).
@@ -32,6 +33,7 @@ rodzic(alicja, adam).
 rodzic(weronika, konrad).
 rodzic(atomek, konrad).
 rodzic(tadeusz, maria).
+rodzic(anna, maria).
 
 %1. kobieta(X)
 kobieta(X) :-
@@ -78,11 +80,76 @@ brat_przyrodni(X,Y) :-
     X \= Y.
     
 %7. kuzyn(X,Y) – X jest kuzynem Y
+kuzyn(X,Y) :-
+    mezczyzna(X),
+    rodzic(A,X),
+    rodzic(B,Y),
+    rodzic(C,A),
+    rodzic(C,B),
+    A \= B,
+    C \= B,
+    C \= A,
+    X \= Y.
+
 %8. dziadek_od_strony_ojca(X,Y) – X jest dziadkiem od strony ojca dla Y
+dziadek_od_strony_ojca(X,Y) :-
+    mezczyzna(X),
+    rodzic(X,A),
+    rodzic(A,Y),
+    mezczyzna(A),
+    X \= A,
+    Y \= A,
+    X \= Y.
+    
+
 %9. dziadek_od_strony_matki(X,Y) – X jest dziadkiem od strony matki dla Y
+dziadek_od_strony_matki(X,Y) :-
+    mezczyzna(X),
+    rodzic(X,A),
+    rodzic(A,Y),
+    kobieta(A),
+    X \= A,
+    Y \= A,
+    X \= Y.
+
 %10. dziadek(X,Y) – X jest dziadkiem Y
+dziadek(X,Y) :-
+    mezczyzna(X),
+    rodzic(X,A),
+    rodzic(A,Y),
+    X \= A,
+    Y \= A,
+    X \= Y.
+
 %11. babcia(X,Y) – X jest babcią Y
+babcia(X,Y) :-
+    kobieta(X),
+    rodzic(X,A),
+    rodzic(A,Y),
+    X \= A,
+    Y \= A,
+    X \= Y.
+
 %12. wnuczka(X,Y) – Y jest wnuczką X
+wnuczka(X,Y) :-
+    kobieta(X),
+    corka(X,A),
+    corka(A,Y),
+    X \= A,
+    Y \= A,
+    X \= Y.
+
 %13. przodek_do2pokolenia_wstecz(X,Y) – X jest przodkiem Y do drugiego pokolenia wstecz
+przodek_do2pokolenia_wstecz(X,Y) :-
+    babcia(X,Y);
+    dziadek(X,Y),
+    X \= Y.
+
 %14. przodek_do3pokolenia_wstecz(X,Y) - X jest przodkiem Y do trzeciego pokolenia wstecz
+przodek_do3pokolenia_wstecz(X,Y) :-
+    rodzic(X,A),
+	przodek_do2pokolenia_wstecz(A,Y),
+    X \= A,
+    Y \= A,
+    X \= Y.
 ```
