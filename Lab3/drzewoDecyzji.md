@@ -21,10 +21,26 @@ class DecisionTree:
         self.root=None
 
     def fit(self, X, y):
-        pass
+        self.n_features = X.shape[1] \
+            if not self.n_features \
+            else min(X.shape[1],self.n_features)
+        self.root = self._grow_tree(X, y)
 
     def _grow_tree(self, X, y, depth=0):
-        pass
+        samples, feats = X.shape
+        label_len = len(np.unique(y))
+
+        if (depth >= self.max_depth or label_len == 1 or samples < self.min_samples_split):
+            count = Counter(y)
+            leaf_val = count.most_common(1)[0][0]
+            return Node(value=leaf_val)
+
+        feat_idxs = np.random.choice(feats, self.n_features, replace = False)
+        best_feature, best_thresh = self._best_split(X, y, feat_idxs)
+        left_idxs, right_idxs = self._split(X[:, best_feature], best_thresh)
+        left = self._grow_tree(X[left_idxs, :], y[left_idxs], depth+1)
+        right = self._grow_tree(X[right_idxs, :], y[right_idxs], depth+1)
+        return Node(best_feature, best_thresh, left, right)
 
     def _best_split(self, X, y, feat_idxs):
         best_gain = -1
