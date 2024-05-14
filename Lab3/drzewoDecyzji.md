@@ -27,7 +27,22 @@ class DecisionTree:
         pass
 
     def _best_split(self, X, y, feat_idxs):
-        pass
+        best_gain = -1
+        split_idx, split_threshold = None, None
+
+        for feat in feat_idxs:
+            X_column = X[:, feat]
+            thresholds = np.unique(X_column)
+
+            for thresh in thresholds:
+                # calculate the information gain
+                gain = self._information_gain(y, X_column, thresh)
+                if gain > best_gain:
+                    best_gain = gain
+                    split_idx = feat
+                    split_threshold = thresh
+
+        return split_idx, split_threshold
 
     def _information_gain(self, y, X_column, threshold):
         parent_e = self._entropy(y)
