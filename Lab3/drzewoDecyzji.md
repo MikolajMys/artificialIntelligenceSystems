@@ -20,21 +20,29 @@ class DecisionTree:
         self.n_features=n_features
         self.root=None
 
-    def fit(self):
-        
-    def _grow_tree(self):
-        
-    def _best_split(self):
-        
-    def _best_split(self):
-        
-    def _information_gain(self):
-        
-    def _split(self):
-        
-    def _entropy(self):
-        
-    def _traverse_tree(self):
-        
-    def predict(self):
+    def fit(self, X, y):
+        pass
+
+    def _grow_tree(self, X, y, depth=0):
+        pass
+
+    def _best_split(self, X, y, feat_idxs):
+        pass
+
+    def _information_gain(self, y, X_column, threshold):
+        pass
+
+    def _split(self, X_column, split_thresh):
+        pass
+
+    def _entropy(self, y):
+        hist = np.bincount(y)
+        ps = hist / len(y)
+        return -np.sum([p * np.log(p) for p in ps if p>0])
+
+    def _traverse_tree(self, x, node):
+        pass
+
+    def predict(self, X):
+        return np.array([self._traverse_tree(x, self.root) for x in X])
 ```
