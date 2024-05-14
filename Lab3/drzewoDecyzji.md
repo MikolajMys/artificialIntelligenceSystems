@@ -30,7 +30,18 @@ class DecisionTree:
         pass
 
     def _information_gain(self, y, X_column, threshold):
-        pass
+        parent_e = self._entropy(y)
+        left_idxs, right_idxs = self._split(X_column, threshold)
+
+        if len(left_idxs) == 0 or len(right_idxs) == 0:
+            return 0
+
+        n = len(y)
+        n_left, n_right = len(left_idxs), len(right_idxs)
+        e_left, e_right = self._entropy(y[left_idxs]), self._entropy(y[right_idxs])
+        kid_e = (n_left/n) * e_left + (n_right/n) * e_right
+        information_gain = parent_e - kid_e
+        return information_gain
 
     def _split(self, X_column, split_thresh):
         left_idxs = np.argwhere(X_column <= split_thresh).flatten()
